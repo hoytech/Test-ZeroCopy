@@ -76,7 +76,7 @@ Test::ZeroCopy - Test that two strings share the same memory
 
 In applications that attempt to handle large strings efficiently, it can often be a huge win to avoid copying strings.
 
-However, unless you are super careful, it's really easy to write perl code that copies strings without realising it:
+However, unless you are super careful, it's easy to write perl code that copies strings without realising it:
 
     my $str = "long string goes here";
 
@@ -91,9 +91,9 @@ One solution is to pass references to the string around. Another is to use L<Dat
 
 Unfortunately, neither of these approaches help when you want to take a substring of the large string: C<substr> always copies the contents of the string. In C we could avoid copying and instead pass around pointers that point into the string.
 
-Although perl doesn't directly support pointers, it is still possible to take a zero-copy substring by creating a scalar with a C<SvPV> pointing into the large string and a C<SvCUR> set to 0 to indicate that the memory is "owned" by the large string. Also, the reference counts of the two strings are linked so that the large buffer will only be reclaimed once all substrings go out of scope.
+Although perl doesn't directly support pointers, it is still possible to take a zero-copy substring by creating a scalar with a C<SvPV> pointing into the large string and a C<SvLEN> set to 0 to indicate that the memory is "owned" by the large string. Also, the reference counts of the two strings are linked so that the large buffer will only be reclaimed once all substrings go out of scope.
 
-L<String::Slice> is an example of a module that can create zero-copy sub-strings in this way.
+L<String::Slice> is an example of a module that can create zero-copy sub-strings or "slices" in this way.
 
 This module came about because I got tired of sprinkling L<Devel::Peek> C<Dump> statements around my code to confirm no copying occurred. Here is an example of how to do that:
 
