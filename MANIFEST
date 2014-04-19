@@ -1,0 +1,7 @@
+Changes
+lib/Test/ZeroCopy.pm
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+t/basic.t
+ZeroCopy.xs

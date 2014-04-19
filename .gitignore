@@ -1,0 +1,11 @@
+README
+Makefile
+Makefile.old
+MYMETA.*
+blib/
+pm_to_blib
+MANIFEST.bak
+Test-ZeroCopy-*.tar.gz
+ZeroCopy.bs
+ZeroCopy.c
+ZeroCopy.o
