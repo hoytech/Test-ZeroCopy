@@ -2,7 +2,7 @@ package Test::ZeroCopy;
 
 use strict;
 
-our $VERSION = '0.100';
+our $VERSION = '0.110';
 
 require XSLoader;
 XSLoader::load('Test::ZeroCopy', $VERSION);
