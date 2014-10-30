@@ -10,3 +10,4 @@ MYMETA.*
 Test-ZeroCopy.*tar[.]gz$
 ZeroCopy.c
 ZeroCopy.o
+ZeroCopy.bs
